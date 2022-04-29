@@ -18,6 +18,10 @@
 
 ## TODO
 - [ ] Adicionar responsividade
-- [ ] Organizar IMGBB em álbuns
-- [ ] Feature to remove some image
+- [ ] Organizar ImgBB em álbuns
 - [ ] Infinite Scroll
+- [ ] Criar sistema de autenticação / autorização
+- [ ] Permitir upload de imagens privadas
+- [ ] Criar seção para visualização de imagens privadas
+- [ ] Criar seção para visualização de imagens públicas
+
