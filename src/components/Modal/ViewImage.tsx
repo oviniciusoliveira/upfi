@@ -28,7 +28,7 @@ export function ModalViewImage({
         </ModalBody>
         <ModalFooter justifyContent="flex-start" p="2">
           <Link href={imgUrl} isExternal fontSize="sm">
-            Abrir Original
+            Abrir original
           </Link>
         </ModalFooter>
       </ModalContent>

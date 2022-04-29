@@ -17,11 +17,14 @@ interface GetImagesProps {
 async function getImages({
   pageParam,
 }: GetImagesProps): Promise<GetImagesResponse> {
-  const response: AxiosResponse<GetImagesResponse> = await api.get(`/images`, {
-    params: {
-      after: pageParam,
-    },
-  });
+  const response: AxiosResponse<GetImagesResponse> = await api.get(
+    `/api/images`,
+    {
+      params: {
+        after: pageParam,
+      },
+    }
+  );
   return response.data;
 }
 
