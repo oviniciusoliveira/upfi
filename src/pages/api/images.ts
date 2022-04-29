@@ -21,6 +21,18 @@ interface ImagesQueryResponse {
   }[];
 }
 
+interface FormattedData {
+  ts: number;
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+}
+export interface GetImagesResponse {
+  data: FormattedData[];
+  after: string | null;
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -53,7 +65,9 @@ export default async function handler(
 
     const queryOptions = {
       size: 6,
-      ...(after && { after: query.Ref(query.Collection('images'), after) }),
+      ...(after && {
+        after: query.Ref(query.Collection('images'), after),
+      }),
     };
 
     return client

@@ -133,6 +133,13 @@ const FileInputBase: ForwardRefRenderFunction<
     }
   }, [cancelToken, error, isSending]);
 
+  // Performance optimization
+  /*   useEffect(() => {
+    return () => {
+      URL.revokeObjectURL(localImageUrl);
+    };
+  }, [localImageUrl]); */
+
   return (
     <FormControl isInvalid={!!error}>
       <FormLabel
@@ -217,6 +224,8 @@ const FileInputBase: ForwardRefRenderFunction<
           onChange={handleImageUpload}
           ref={ref}
           type="file"
+          accept=".png,.jpg,.jpeg,.gif"
+          multiple={false}
           style={{
             display: 'none',
           }}
