@@ -70,7 +70,14 @@ const FileInputBase: ForwardRefRenderFunction<
 
   const handleImageUpload = useCallback(
     async (event: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
-      if (!event.target.files?.length) {
+      if (!event.target.files?.length || event.target.files.length === 0) {
+        return;
+      }
+
+      const file = event.target.files[0];
+
+      if (file.size > 10 * 1024 * 1024) {
+        trigger('image');
         return;
       }
 
@@ -84,7 +91,7 @@ const FileInputBase: ForwardRefRenderFunction<
 
       const formData = new FormData();
 
-      formData.append(event.target.name, event.target.files[0]);
+      formData.append(event.target.name, file);
       formData.append('key', process.env.NEXT_PUBLIC_IMGBB_API_KEY);
 
       const { CancelToken } = axios;
@@ -101,13 +108,13 @@ const FileInputBase: ForwardRefRenderFunction<
 
       try {
         const response = await api.post(
-          'https://api.imgbb.com/1/upload',
+          process.env.NEXT_PUBLIC_IMGBB_API_URL,
           formData,
           config
         );
 
         setImageUrl(response.data.data.url);
-        setLocalImageUrl(URL.createObjectURL(event.target.files[0]));
+        setLocalImageUrl(URL.createObjectURL(file));
       } catch (err) {
         if (err?.message === 'Cancelled image upload.') return;
 
@@ -221,15 +228,15 @@ const FileInputBase: ForwardRefRenderFunction<
           disabled={isSending}
           id={name}
           name={name}
-          onChange={handleImageUpload}
           ref={ref}
           type="file"
-          accept=".png,.jpg,.jpeg,.gif"
+          accept=".png,.jpg,.gif"
           multiple={false}
           style={{
             display: 'none',
           }}
           {...rest}
+          onChange={handleImageUpload}
         />
       </FormLabel>
     </FormControl>

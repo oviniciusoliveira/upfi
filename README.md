@@ -18,6 +18,7 @@
 
 ## TODO
 - [x] Adicionar responsividade
+- [ ] Create Next API Route to upload image in ImgBB
 - [ ] Organizar ImgBB em álbuns
 - [ ] Infinite Scroll
 - [ ] Criar sistema de autenticação / autorização
