@@ -23,7 +23,7 @@ interface FormValues extends Record<string, unknown> {
 }
 
 async function addImage(data: AddImageProps): Promise<void> {
-  await api.post('/images', data);
+  await api.post('/api/images', data);
 }
 
 export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
