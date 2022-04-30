@@ -17,7 +17,7 @@
   - Next API
 
 ## TODO
-- [ ] Adicionar responsividade
+- [x] Adicionar responsividade
 - [ ] Organizar ImgBB em álbuns
 - [ ] Infinite Scroll
 - [ ] Criar sistema de autenticação / autorização

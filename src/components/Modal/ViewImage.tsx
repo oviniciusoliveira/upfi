@@ -27,6 +27,7 @@ export function ModalViewImage({
         overflow="hidden"
         maxW="900px"
         width="fit-content"
+        m={[3, 4, 5, 6]}
       >
         <ModalBody p="0">
           <Image src={imgUrl} maxH="600px" />

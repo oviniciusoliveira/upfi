@@ -34,6 +34,15 @@ export const theme = extendTheme({
   },
   styles: {
     global: {
+      html: {
+        fontSize: {
+          base: '75%',
+          sm: '80%',
+          md: '100%',
+          lg: '100%',
+          xl: '100%',
+        },
+      },
       body: {
         bg: 'pGray.900',
         color: 'pGray.50',

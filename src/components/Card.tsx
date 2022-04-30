@@ -39,7 +39,7 @@ export function Card({ data, viewImage }: CardProps): JSX.Element {
         />
       </Skeleton>
 
-      <Box pt={5} pb={4} px={6}>
+      <Box pt={[3, 4, 5, 6]} pb={[4, 5, 6, 6]} px={[4, 5, 6]}>
         {isLoading ? (
           <>
             <SkeletonText fontSize="2xl" mt={2} noOfLines={1} />
